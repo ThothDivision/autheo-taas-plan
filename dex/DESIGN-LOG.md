@@ -45,3 +45,6 @@ Hara (White), Tufte Style (counterpoint), Müller-Brockmann, Arnheim/Dondis, WCA
 
 ## Compliance Check
 Mode ✓ · seed (Stance, Rules, Breaker, dotted counterpoint) ✓ · premortem ✓ · decisions before moves ✓ · Provocateur + Inclusion seats ✓ · measurements ✓ · stops met after R3 ✓ · gap: sequential panel.
+
+## R4 — Build-status pages (13 Oct 2026)
+Intent: a reader who is not an engineer (the owner's boss) learns what exists, how it fits and where it stands, without opening the private repo. Decisions: (1) the status pages become the primary nav; the six plan documents stay, relabelled "target design" and grouped under "Plan documents" on the overview, so plan and build are never confused. (2) Status badges (Built / Mock / Stub / Planned / Open) carried by text and border style, not colour alone (WCAG). (3) Mermaid is vendored (site/vendor, MIT) instead of loaded from a CDN. (4) Diagram-heavy pages drop the side TOC so diagrams get the full width; a diagram that is at most ~1.4× too wide is scaled to fit, wider ones keep native size and scroll (the D4 rule). The parts diagram is hand-made SVG because mermaid's auto-layout spread it to 1,800 px. Checked: 13 pages at 1440 and 390 px, 0 px horizontal overflow, 0 console errors, 0 remote requests, every diagram rendered, 214 internal links resolve.

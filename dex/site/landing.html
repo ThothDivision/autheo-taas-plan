@@ -1,37 +1,58 @@
 {{header}}
 <main>
 <section class="hero">
-  <p class="hero-eyebrow">Autheo · DEX</p>
-  <h1>One market.<br>Two tiers.<br><span class="quiet">Every chain Autheo reaches.</span></h1>
-  <p class="hero-lede">An open tier for crypto-native assets and a compliance-gated institutional tier for tokenized real-world assets — settled atomically on Autheo L1 and routed through the L0 Mesh.</p>
-  <div class="hero-cta"><a class="btn btn-solid" href="docs/TAAS-INTEGRATION.html">How TaaS assets trade here →</a><a class="btn" href="docs/MARKET-STRUCTURE.html">Market structure</a></div>
-  <figure class="map"><div class="map-scroll"><svg viewBox="-8 0 1216 380" role="img" aria-labelledby="map-t map-d"><title id="map-t">Route map</title><desc id="map-d">Wallets, Institutions, AI agents, TaaS issuers enter AUTHEO DEX and leave for Open tier, Institutional tier, Ethereum, Base.</desc><style>.st{font:700 15px var(--sans);fill:#111}.hub{font:700 17px var(--sans);letter-spacing:.12em;fill:#111}.hubsub{font:400 14px var(--sans);fill:#55534d}</style><path d="M48 56 H330 L446 172 H740 L856 56 H1152" fill="none" stroke="#1565c0" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><path d="M48 150.66666666666669 H330 L363.3333333333333 184 H740 L773.3333333333333 150.66666666666669 H1152" fill="none" stroke="#13874b" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><path d="M48 245.33333333333334 H330 L379.33333333333337 196 H740 L789.3333333333334 245.33333333333334 H1152" fill="none" stroke="#6f3fb5" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><path d="M48 340 H330 L462 208 H740 L872 340 H1152" fill="none" stroke="#d52b1e" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><rect x="520" y="144" width="180" height="92" rx="46" fill="#fff" stroke="#111" stroke-width="6"/><text x="610" y="110" class="hub" text-anchor="middle">AUTHEO DEX</text><text x="610" y="130" class="hubsub" text-anchor="middle">router · policy gate · DvP</text><circle cx="48" cy="56" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="48" cy="150.66666666666669" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="48" cy="245.33333333333334" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="48" cy="340" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="1152" cy="56" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="1152" cy="150.66666666666669" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="1152" cy="245.33333333333334" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="1152" cy="340" r="10" fill="#fff" stroke="#111" stroke-width="4"/><text x="46" y="38" class="st">Wallets</text><text x="46" y="132.66666666666669" class="st">Institutions</text><text x="46" y="227.33333333333334" class="st">AI agents</text><text x="46" y="322" class="st">TaaS issuers</text><text x="1154" y="38" class="st" text-anchor="end">Open tier</text><text x="1154" y="132.66666666666669" class="st" text-anchor="end">Institutional tier</text><text x="1154" y="227.33333333333334" class="st" text-anchor="end">Ethereum</text><text x="1154" y="322" class="st" text-anchor="end">Base</text></svg></div><p class="scroll-hint">Map scrolls sideways →</p><figcaption>Orders from wallets, institutions, AI agents and issuers enter one router; the policy gate sends each to the tier it is allowed to reach, and DvP settlement finishes every fill.</figcaption></figure>
+  <p class="hero-eyebrow">Autheo · DEX · status as of 13 Oct 2026</p>
+  <h1>Pick an asset and a chain.<br><span class="quiet">Autheo handles the rest.</span></h1>
+  <p class="hero-lede">The Autheo DEX is where tokenized real-world assets trade: only eligible people can hold them, trades settle cash-for-asset in one step, and Autheo never holds anyone's keys or money.</p>
+  <div class="status-strip" aria-label="Status at a glance"><span class="chip c-done">M0 walking skeleton · Done</span><span class="chip c-done">Agent interop · Done</span><span class="chip c-started">M1 · Started</span></div>
+  <div class="hero-cta"><a class="btn btn-solid" href="docs/BUILT.html">What we've built →</a><a class="btn" href="docs/STATUS.html">Roadmap & status</a></div>
 </section>
 <section class="band rule-top">
-  <div class="band-head"><h2>Not another AMM.</h2><p>Tokenized bonds and funds need eligibility, auctions and atomic cash settlement more than they need a constant-product curve.</p></div>
-  <div class="pillars">
-    <div class="pillar" style="--line:#1565c0"><h3>Open tier</h3><p>Concentrated-liquidity pools and an order book for THEO, majors and stablecoins.</p></div>
-    <div class="pillar" style="--line:#13874b"><h3>Institutional tier</h3><p>Permissioned book, RFQ and periodic batch auctions, run with a licensed venue partner.</p></div>
-    <div class="pillar" style="--line:#d52b1e"><h3>One rulebook with TaaS</h3><p>The compliance gate calls the TaaS policy engine before an order rests and again at settlement.</p></div>
-    <div class="pillar" style="--line:#f2b705"><h3>Atomic DvP</h3><p>Asset and cash legs settle together on Autheo L1 against tokenized deposits.</p></div>
-    <div class="pillar" style="--line:#6f3fb5"><h3>Intents across chains</h3><p>"Deliver X on chain Z": solvers route through the L0 Mesh with the rules intact.</p></div>
-    <div class="pillar" style="--line:#e87511"><h3>Fair ordering</h3><p>Batch auctions and sealed, post-quantum-encrypted orders against front-running.</p></div>
+  <div class="band-head"><h2>The story in one paragraph.</h2><p>For anyone new to the project.</p></div>
+  <div class="story">
+    <p class="story-main">Banks, funds and issuers want to put bonds, fund shares, deposits and physical goods on blockchains, but those assets come with rules: who may own them, where, how much and when. Autheo's tokenization service (TaaS) issues such assets with the rules built in, and the DEX is where they trade. Before anything moves, the DEX checks every rule and explains the answer in plain words; when a trade happens, the asset and the payment swap in a single transaction, straight between the two parties' own wallets, or nothing happens at all. The same rules are enforced again on the blockchain itself, so no shortcut exists. A router can send a trade to outside exchanges and other chains when that is cheaper, and AI agents can shop and prepare trades for people within limits those people set, but only the person's own signature ever moves value. Every decision is written into a tamper-evident log.</p>
+    <div class="who">
+      <h3>Who it is for</h3>
+      <ul>
+        <li><b>Issuers and transfer agents</b> who tokenize assets through TaaS and need their rules kept after issuance.</li>
+        <li><b>Eligible investors and institutions</b> who want to buy, sell and move those assets across chains from their own wallets.</li>
+        <li><b>AI agents acting for people</b>, under mandates, with receipts.</li>
+        <li><b>Outside venues</b> (exchanges, AMMs, bridges) that can plug in as routes.</li>
+      </ul>
+    </div>
   </div>
 </section>
 <section class="band rule-top">
-  <div class="band-head"><h2>Built in six phases.</h2><p>Open tier first, then the institutional pilot with one venue partner and one issuer.</p></div>
-  <div class="phases">
-    <div class="phase"><div class="phase-when">Now</div><h3>Design</h3><p>Market structure, policy hook shared with TaaS.</p></div>
-    <div class="phase"><div class="phase-when">Q1–Q2</div><h3>Open tier MVP</h3><p>Pools, book, THEO fees on testnet.</p></div>
-    <div class="phase"><div class="phase-when">Q2–Q4</div><h3>Institutional pilot</h3><p>Permissioned book, RFQ, DvP against deposits.</p></div>
-    <div class="phase"><div class="phase-when">Y2 H1</div><h3>Auctions & agents</h3><p>Batch auctions, sealed orders, agent mandates.</p></div>
-    <div class="phase"><div class="phase-when">Y2 H2</div><h3>Multi-chain</h3><p>Intent router, solver bonds.</p></div>
-    <div class="phase"><div class="phase-when">Y3</div><h3>Scale</h3><p>White-label venues for banks.</p></div>
+  <div class="band-head"><h2>Status at a glance.</h2><p>Checked against the build repository on 13 Oct 2026. Sandbox code on a local test chain; unaudited; no real assets issued.</p></div>
+  <div class="glance">
+    <div class="g"><span class="g-n">12</span><span class="g-t">components in code, from rule engine to settlement contract</span></div>
+    <div class="g"><span class="g-n">61 + 22</span><span class="g-t">unit tests and contract tests passing (incl. fuzz and invariants)</span></div>
+    <div class="g"><span class="g-n">11</span><span class="g-t">steps in the scripted end-to-end run, green in CI on every push</span></div>
+    <div class="g"><span class="g-n">0</span><span class="g-t">keys or funds held by Autheo services; agents never hold keys</span></div>
   </div>
+  <p class="note">Still mocked: outside venues (bridge and AMM), the bank cash leg, KYC and Lumenco scanner keys. Still missing: an Autheo testnet deployment, persistent audit and agent records. See <a href="docs/STATUS.html#open-risks">open risks</a>.</p>
 </section>
 <section class="band rule-top">
-  <div class="band-head"><h2>The plan, in six documents.</h2><p>Start with the TaaS integration.</p></div>
-  <div class="cards">{{doccards}}</div>
+  <div class="band-head"><h2>What changed recently.</h2><p>Newest first. Commit ids refer to the private build repository ThothDivision/autheo-real-dex unless marked "plan".</p></div>
+  <ol class="changes">
+    <li><time datetime="2026-10-13">13 Oct 2026</time><div><b>This status site.</b> The DEX section of the plan site now explains what is built, how it fits together and where it stands.</div></li>
+    <li><time datetime="2026-10-13">13 Oct 2026</time><div><b>Agent scope renamed.</b> <code>dex.order.sign</code> became <code>dex.order.request_signature</code> (agents ask a person to sign; they never sign). Verifier re-pinned to agent-environment 0.7.0; the old name is a deprecated alias until 0.8. <span class="cid">27c34c9</span></div></li>
+    <li><time datetime="2026-10-13">13 Oct 2026</time><div><b>Repositories consolidated.</b> The TAAS-DEX placeholder repository was merged into the build repository with its history and archived <span class="cid">4ad0d77</span>; the DEX plan moved into the TaaS plan site under <code>dex/</code> <span class="cid">plan 6fd8975</span>.</div></li>
+    <li><time datetime="2026-10-13">13 Oct 2026</time><div><b>M1 started: agent authorization and outside venues.</b> Agents prove a mandate through Autheo delegation chains; allow / escalate / block; orders carry <code>agentRef</code>; receipts go into the audit log. New VenueAdapter plug-ins (mock bridge, mock AMM). ADR 0006. <span class="cid">53caf04</span></div></li>
+    <li><time datetime="2026-10-13">13 Oct 2026</time><div><b>M0 done.</b> README, ADRs 0001–0005, CI on Node 20 and 22, end-to-end run on a local chain, console stub <span class="cid">31eb780</span> <span class="cid">fe550a4</span> <span class="cid">f34abcf</span>.</div></li>
+    <li><time datetime="2026-10-13">13 Oct 2026</time><div><b>Core built.</b> Policy engine with shared vectors, contracts (token, compliance, registries, DvP, audit anchor), audit log, SDK, router, MCP server <span class="cid">06325da</span> to <span class="cid">d485986</span>.</div></li>
+    <li><time datetime="2026-10-13">13 Oct 2026</time><div><b>Plan: the DEX is one venue among many.</b> The router interoperates with outside DEXs and aggregators <span class="cid">plan c5e3a0b</span>.</div></li>
+    <li><time datetime="2026-10-12">12 Oct 2026</time><div><b>DEX plan written.</b> Target architecture, market structure, TaaS integration, THEO, risks and phase roadmap <span class="cid">plan 1e0fffa</span>.</div></li>
+  </ol>
+</section>
+<section class="band rule-top">
+  <div class="band-head"><h2>Read on.</h2><p>Six pages, plain language first, detail below. Start with what we've built.</p></div>
+  <div class="cards">{{pagecards}}</div>
+</section>
+<section class="band rule-top" id="plan">
+  <div class="band-head"><h2>Plan documents.</h2><p>The target design the build is heading toward. These describe intent, not what exists today.</p></div>
+  <figure class="map"><div class="map-scroll"><svg viewBox="-8 0 1216 380" role="img" aria-labelledby="map-t map-d"><title id="map-t">Route map</title><desc id="map-d">Wallets, Institutions, AI agents, TaaS issuers enter AUTHEO DEX and leave for Open tier, Institutional tier, Ethereum, Base.</desc><style>.st{font:700 15px var(--sans);fill:#111}.hub{font:700 17px var(--sans);letter-spacing:.12em;fill:#111}.hubsub{font:400 14px var(--sans);fill:#55534d}</style><path d="M48 56 H330 L446 172 H740 L856 56 H1152" fill="none" stroke="#1565c0" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><path d="M48 150.66666666666669 H330 L363.3333333333333 184 H740 L773.3333333333333 150.66666666666669 H1152" fill="none" stroke="#13874b" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><path d="M48 245.33333333333334 H330 L379.33333333333337 196 H740 L789.3333333333334 245.33333333333334 H1152" fill="none" stroke="#6f3fb5" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><path d="M48 340 H330 L462 208 H740 L872 340 H1152" fill="none" stroke="#d52b1e" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><rect x="520" y="144" width="180" height="92" rx="46" fill="#fff" stroke="#111" stroke-width="6"/><text x="610" y="110" class="hub" text-anchor="middle">AUTHEO DEX</text><text x="610" y="130" class="hubsub" text-anchor="middle">router · policy gate · DvP</text><circle cx="48" cy="56" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="48" cy="150.66666666666669" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="48" cy="245.33333333333334" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="48" cy="340" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="1152" cy="56" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="1152" cy="150.66666666666669" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="1152" cy="245.33333333333334" r="10" fill="#fff" stroke="#111" stroke-width="4"/><circle cx="1152" cy="340" r="10" fill="#fff" stroke="#111" stroke-width="4"/><text x="46" y="38" class="st">Wallets</text><text x="46" y="132.66666666666669" class="st">Institutions</text><text x="46" y="227.33333333333334" class="st">AI agents</text><text x="46" y="322" class="st">TaaS issuers</text><text x="1154" y="38" class="st" text-anchor="end">Open tier</text><text x="1154" y="132.66666666666669" class="st" text-anchor="end">Institutional tier</text><text x="1154" y="227.33333333333334" class="st" text-anchor="end">Ethereum</text><text x="1154" y="322" class="st" text-anchor="end">Base</text></svg></div><p class="scroll-hint">Map scrolls sideways →</p><figcaption><strong>Target design (plan).</strong> Orders from wallets, institutions, AI agents and issuers enter one router; the policy gate sends each to the tier it is allowed to reach, and DvP settlement finishes every fill. Today the router, policy gate and DvP exist; the two trading tiers are planned.</figcaption></figure>
+  <div class="cards plan-cards">{{plancards}}</div>
 </section>
 </main>
 {{footer}}

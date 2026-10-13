@@ -1,15 +1,62 @@
 {
  "brand": "Autheo",
  "product": "DEX",
- "tagline": "planning",
- "description": "Autheo DEX: an open tier and a compliance-gated institutional tier, settled atomically on Autheo L1 and routed across chains.",
+ "tagline": "what we have built and where it stands",
+ "description": "Autheo DEX: what has been built, how it is structured and where it stands. Non-custodial, compliance-gated trading and settlement for tokenized real-world assets, with agent mandates.",
  "repo": "https://github.com/ThothDivision/autheo-taas-plan/tree/main/dex",
- "footer": "Planning documents. Not an offer of securities or a regulated service.",
+ "footer": "Status checked against the build repository on 13 Oct 2026. Sandbox code, unaudited. Not an offer of securities or a regulated service.",
  "related": {
   "title": "Autheo TaaS plan",
   "url": "../"
  },
- "docs": [
+ "pages": [
+  {
+   "file": "BUILT.md",
+   "title": "What we've built",
+   "nav": "What we've built",
+   "color": "#13874b",
+   "summary": "Every component, what it does in plain words, whether it is real or a mock, and its tests."
+  },
+  {
+   "file": "SYSTEM.md",
+   "title": "Architecture",
+   "nav": "Architecture",
+   "color": "#1565c0",
+   "summary": "Diagrams of the parts and the trade and agent flows, plus a map of the code repository.",
+   "full": true
+  },
+  {
+   "file": "AGENTS.md",
+   "title": "Agents & the Agent Environment",
+   "nav": "Agents",
+   "color": "#6f3fb5",
+   "summary": "How AI agents get mandates, what they may ask the DEX for, and why they never hold keys.",
+   "full": true
+  },
+  {
+   "file": "SECURITY.md",
+   "title": "Compliance & security",
+   "nav": "Compliance & security",
+   "color": "#d52b1e",
+   "summary": "Eligibility and transfer rules, who holds which keys, the threat table and the decision records."
+  },
+  {
+   "file": "STATUS.md",
+   "title": "Roadmap & status",
+   "nav": "Roadmap & status",
+   "color": "#e87511",
+   "summary": "Milestones with their exit tests, what is done, what is next, open risks and decisions needed.",
+   "wide": true
+  },
+  {
+   "file": "GLOSSARY.md",
+   "title": "Glossary",
+   "nav": "Glossary",
+   "color": "#7a7870",
+   "summary": "Plain-language meanings of every term on these pages."
+  }
+ ],
+ "plan": [
   {
    "file": "TAAS-INTEGRATION.md",
    "title": "TaaS integration",
@@ -18,9 +65,9 @@
   },
   {
    "file": "ARCHITECTURE.md",
-   "title": "Architecture",
+   "title": "Target architecture",
    "color": "#1565c0",
-   "summary": "Router, two tiers of venues, compliance gate, DvP settlement, identity, oracles, custody, THEO."
+   "summary": "The full design: router, two tiers of venues, compliance gate, DvP settlement, identity, oracles, custody, THEO."
   },
   {
    "file": "MARKET-STRUCTURE.md",
@@ -32,17 +79,17 @@
    "file": "THEO.md",
    "title": "THEO economics",
    "color": "#f2b705",
-   "summary": "Where THEO is used — fees, staking, bonds, rebates — and where it deliberately is not."
+   "summary": "Where THEO is used (fees, staking, bonds, rebates) and where it deliberately is not."
   },
   {
    "file": "RISK.md",
-   "title": "Risk & compliance",
+   "title": "Risk register (plan)",
    "color": "#e87511",
    "summary": "Licensing, contract, liquidity, oracle, MEV, cross-chain, agent and quantum risks, with mitigations."
   },
   {
    "file": "ROADMAP.md",
-   "title": "Roadmap",
+   "title": "Phase roadmap (plan)",
    "color": "#6f3fb5",
    "summary": "Six phases from design to multi-chain scale, each with a gate."
   }
