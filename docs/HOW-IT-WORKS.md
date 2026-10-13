@@ -2,7 +2,7 @@
 
 This page walks one asset through TaaS end to end — who acts, what state each object is in, what happens when something
 goes wrong — so a reviewer can check the design without reading code. Terms are defined in the glossary at the bottom;
-component names match [Architecture](ARCHITECTURE.md) and the build plan in [TAAS-DEX](BUILD-PLAN.md).
+component names match [Architecture](ARCHITECTURE.md) and the [build plan](BUILD-PLAN.md).
 
 ## The answer in one paragraph
 

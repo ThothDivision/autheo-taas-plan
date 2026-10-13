@@ -1,6 +1,6 @@
 # Integration with the Autheo DEX
 
-TaaS creates and governs tokenized assets; the [Autheo DEX](https://github.com/ThothDivision/autheo-dex)
+TaaS creates and governs tokenized assets; the [Autheo DEX](../dex/)
 gives them a market. Together they form one institutional stack with **one rulebook**: the same
 identity credentials, policy engine, DvP settlement contracts, audit trail and L0 Mesh routes.
 

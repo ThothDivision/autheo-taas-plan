@@ -21,5 +21,5 @@ order types, and access to the liquidity of every chain Autheo connects.
 | [Risk & compliance](docs/RISK.md) | Regulatory perimeter, partner licences, smart-contract, liquidity, oracle and quantum risk |
 | [Roadmap](docs/ROADMAP.md) | Phased 2–3 year plan with gates |
 
-Status: planning. Companion: [Autheo TaaS plan](https://github.com/ThothDivision/autheo-taas-plan).
+Status: planning. Part of the [Autheo TaaS plan](../README.md) (merged from ThothDivision/autheo-dex-plan); site: https://thothdivision.github.io/autheo-taas-plan/dex/
 Nothing here is an offer of securities or a regulated service.

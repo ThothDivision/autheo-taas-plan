@@ -7,7 +7,7 @@
  "footer": "Planning documents. Not an offer of securities or a regulated service.",
  "related": {
   "title": "Autheo DEX plan",
-  "url": "https://thothdivision.github.io/autheo-dex/"
+  "url": "dex/"
  },
  "docs": [
   {
@@ -62,7 +62,7 @@
    "file": "BUILD-PLAN.md",
    "title": "Build plan",
    "color": "#5d4037",
-   "summary": "TAAS-DEX containers, repository layout, milestones M0–M6 with exit tests, testing strategy, first six weeks."
+   "summary": "Containers, repository layout, milestones M0–M6 with exit tests, testing strategy, first six weeks."
   },
   {
    "file": "ECONOMICS.md",
@@ -76,9 +76,5 @@
    "color": "#ad1457",
    "summary": "Ten open decisions with options and recommendations, twelve risks with triggers and owners, the premortem."
   }
- ],
- "dev": {
-  "title": "Development repo (TAAS-DEX)",
-  "url": "https://github.com/ThothDivision/TAAS-DEX"
- }
+ ]
 }

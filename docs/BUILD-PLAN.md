@@ -1,6 +1,6 @@
-# Build plan (TAAS-DEX)
+# Build plan
 
-Development happens in [ThothDivision/TAAS-DEX](https://github.com/ThothDivision/TAAS-DEX); this page is its plan of record.
+Development happens in a private repository; this page is its plan of record.
 Milestones M0–M6 sit inside the phases of the [Roadmap](ROADMAP.md). **Each milestone ends with exit tests a stranger can run**;
 a milestone is not done until they pass in CI and on a shared environment.
 

@@ -3,11 +3,11 @@
  "product": "DEX",
  "tagline": "planning",
  "description": "Autheo DEX: an open tier and a compliance-gated institutional tier, settled atomically on Autheo L1 and routed across chains.",
- "repo": "https://github.com/ThothDivision/autheo-dex",
+ "repo": "https://github.com/ThothDivision/autheo-taas-plan/tree/main/dex",
  "footer": "Planning documents. Not an offer of securities or a regulated service.",
  "related": {
   "title": "Autheo TaaS plan",
-  "url": "https://thothdivision.github.io/autheo-taas-plan/"
+  "url": "../"
  },
  "docs": [
   {
