@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Architecture — DEX</title><meta name="description" content="Autheo DEX: an open tier and a compliance-gated institutional tier, settled atomically on Autheo L1 and routed across chains."><link rel="stylesheet" href="../site/style.css"><script type="module">import m from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";m.initialize({startOnLoad:true,flowchart:{useMaxWidth:false},sequence:{useMaxWidth:false},theme:"base",themeVariables:{fontFamily:"Helvetica Neue, Helvetica, Arial, sans-serif",primaryColor:"#ffffff",primaryBorderColor:"#111111",primaryTextColor:"#111111",lineColor:"#111111",clusterBkg:"#f2f1ec",clusterBorder:"#c9c7bf",tertiaryColor:"#f2f1ec",actorBkg:"#ffffff",actorBorder:"#111111",noteBkgColor:"#fff6d6"}});</script></head><body><header class="masthead"><a class="brand" href="../index.html"><span class="brand-dot" aria-hidden="true"></span>Autheo<span class="brand-sub">DEX</span></a><nav aria-label="Documents"><a href="../docs/TAAS-INTEGRATION.html">TaaS integration</a><a href="../docs/ARCHITECTURE.html" aria-current="page">Architecture</a><a href="../docs/MARKET-STRUCTURE.html">Market structure</a><a href="../docs/THEO.html">THEO economics</a><a href="../docs/RISK.html">Risk & compliance</a><a href="../docs/ROADMAP.html">Roadmap</a></nav></header><main class="doc"><div class="doc-line" style="--line:#1565c0" aria-hidden="true"></div><aside class="toc" aria-label="On this page"><div class="toc-label">On this page</div><a href="#components">Components</a><a href="#design-choices">Design choices</a></aside><article class="prose"><div class="kicker" style="--line:#1565c0">02 · DEX</div><h1 id="architecture">Architecture</h1>
+<figure class="diagram"><pre class="mermaid">flowchart LR
+  subgraph Clients
+    W[Wallets &amp; smart accounts] --- I[Institutions via API/FIX] --- A[AI agents with DID mandates]
+  end
+  subgraph DEX["Autheo DEX"]
+    R[Router / intent solver]
+    subgraph Open["Open tier"]
+      AMM[Concentrated-liquidity pools] --- OB1[Order book]
+    end
+    subgraph Inst["Institutional tier"]
+      OB2[Permissioned order book] --- RFQ[RFQ / block trades] --- BA[Periodic batch auctions]
+    end
+    G[Compliance gate&lt;br/&gt;TaaS policy engine]
+  end
+  subgraph Core["Autheo core"]
+    S[DvP settlement contracts&lt;br/&gt;Autheo L1]
+    ID[Autheo Identity credentials]
+    M[L0 Mesh routing &amp; attestations]
+    O[Oracles: prices, NAV, rates, zkTLS]
+    T[(THEO fees &amp; staking)]
+  end
+  Clients --&gt; R --&gt; Open &amp; Inst
+  Inst --&gt; G --&gt; S
+  Open --&gt; S
+  G --- ID
+  R &lt;--&gt; M
+  S --- O
+  S --- T</pre></figure><p class="scroll-hint">Diagram scrolls sideways →</p>
+<h2 id="components">Components</h2>
+<div class="table"><table><thead><tr><th>Component</th><th>Role</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Router / intent solver</strong></td><td>Takes "sell X for Y, deliver on chain Z" and finds the best path across tiers, venues and chains</td><td>Users state intents; solvers compete; L0 Mesh moves value between chains</td></tr><tr><td><strong>Open tier</strong></td><td>Concentrated-liquidity AMM + order book for permissionless assets (THEO, majors, stablecoins)</td><td>Standard DeFi semantics, no KYC</td></tr><tr><td><strong>Institutional tier</strong></td><td>Permissioned order book, RFQ for blocks, periodic batch auctions for thin RWA markets</td><td>Every participant holds a verified credential; operated with a licensed partner (ATS/MTF)</td></tr><tr><td><strong>Compliance gate</strong></td><td>Calls the TaaS policy engine before an order rests and again at settlement</td><td>Same rules as TaaS transfers: KYC, sanctions, jurisdiction, eligibility, limits, lock-ups</td></tr><tr><td><strong>Settlement</strong></td><td>Atomic DvP on Autheo L1: asset leg and cash leg move together or not at all</td><td>Cash legs: tokenized deposits / regulated stablecoins</td></tr><tr><td><strong>Identity</strong></td><td>Autheo Identity verifiable credentials bound to wallets and agent DIDs</td><td>Holder proves eligibility without exposing PII</td></tr><tr><td><strong>L0 Mesh</strong></td><td>Cross-chain routing and attestations; canonical RWA supply stays on L1</td><td>Policy travels with the asset to every chain</td></tr><tr><td><strong>Oracles</strong></td><td>Prices, NAV, rates; zkTLS attestations for off-chain facts (reserves, balances)</td><td>Circuit breakers on stale/deviating feeds</td></tr><tr><td><strong>Custody</strong></td><td>Smart accounts, MPC/HSM custodians, agent mandates</td><td>Institutions keep their custodian</td></tr><tr><td><strong>THEO</strong></td><td>Fee asset, staking for fee tiers and solver/relayer bonds</td><td>Never the settlement asset for regulated instruments</td></tr></tbody></table></div>
+<h2 id="design-choices">Design choices</h2>
+<ol><li><strong>One venue, two tiers, one settlement layer.</strong> Liquidity can be routed between tiers only where the asset's rules allow (an RWA token never enters an open pool).</li><li><strong>Order books and auctions for RWAs, AMMs for crypto.</strong> Thin, slow-moving instruments price better in batch auctions and RFQ than in constant-function pools; AMMs stay for deep, fungible pairs.</li><li><strong>Fair ordering.</strong> Frequent batch auctions and sealed (hybrid X25519 + ML-KEM encrypted) order submission remove most front-running and sandwiching.</li><li><strong>Policy at two points.</strong> Pre-trade (an ineligible order never reaches the book) and at settlement (state may have changed).</li><li><strong>Post-quantum ready.</strong> Institutions choose a security profile (compact / balanced / max); settlement and audit records carry hybrid Ed25519 + ML-DSA signatures.</li></ol><a class="next" href="MARKET-STRUCTURE.html"><span>Next</span>Market structure →</a></article></main><footer class="foot"><div>Planning documents. Not an offer of securities or a regulated service.</div><div><a href="https://github.com/ThothDivision/autheo-dex">Source on GitHub</a> · <a href="https://thothdivision.github.io/autheo-taas-plan/">Autheo TaaS plan</a></div></footer></body></html>

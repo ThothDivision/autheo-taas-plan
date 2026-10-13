@@ -1,0 +1,50 @@
+{
+ "brand": "Autheo",
+ "product": "DEX",
+ "tagline": "planning",
+ "description": "Autheo DEX: an open tier and a compliance-gated institutional tier, settled atomically on Autheo L1 and routed across chains.",
+ "repo": "https://github.com/ThothDivision/autheo-dex",
+ "footer": "Planning documents. Not an offer of securities or a regulated service.",
+ "related": {
+  "title": "Autheo TaaS plan",
+  "url": "https://thothdivision.github.io/autheo-taas-plan/"
+ },
+ "docs": [
+  {
+   "file": "TAAS-INTEGRATION.md",
+   "title": "TaaS integration",
+   "color": "#d52b1e",
+   "summary": "How TaaS-issued assets list, trade, settle, receive coupons and move across chains on the DEX."
+  },
+  {
+   "file": "ARCHITECTURE.md",
+   "title": "Architecture",
+   "color": "#1565c0",
+   "summary": "Router, two tiers of venues, compliance gate, DvP settlement, identity, oracles, custody, THEO."
+  },
+  {
+   "file": "MARKET-STRUCTURE.md",
+   "title": "Market structure",
+   "color": "#13874b",
+   "summary": "Open and institutional tiers, the right venue for each asset, order types, fees and market makers."
+  },
+  {
+   "file": "THEO.md",
+   "title": "THEO economics",
+   "color": "#f2b705",
+   "summary": "Where THEO is used — fees, staking, bonds, rebates — and where it deliberately is not."
+  },
+  {
+   "file": "RISK.md",
+   "title": "Risk & compliance",
+   "color": "#e87511",
+   "summary": "Licensing, contract, liquidity, oracle, MEV, cross-chain, agent and quantum risks, with mitigations."
+  },
+  {
+   "file": "ROADMAP.md",
+   "title": "Roadmap",
+   "color": "#6f3fb5",
+   "summary": "Six phases from design to multi-chain scale, each with a gate."
+  }
+ ]
+}
