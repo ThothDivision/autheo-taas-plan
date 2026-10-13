@@ -92,13 +92,15 @@ flowchart TB
 | White-label | Bank | platform licence + SLA tier |
 
 ## Joint roadmap
-| Phase | TaaS | DEX | Joint milestone |
+| Roadmap phase | TaaS | DEX | Joint milestone |
 | --- | --- | --- | --- |
-| 1 | Pilot issuance on L1, policy engine as a service | Open tier MVP | Shared policy-hook spec frozen |
-| 2 | Partner bank tokenized deposits, first RWA | Institutional tier pilot with venue partner | First secondary trade of a TaaS asset on the DEX, DvP against deposits |
-| 3 | zkTLS proof of reserves, corporate-action automation | Batch auctions, sealed orders, agent trading | Coupon paid to holders whose units rest on the book |
-| 4 | Multi-jurisdiction rule packs | Cross-chain intent router | RWA bought from another chain, delivered with rules intact |
-| 5 | White-label TaaS | White-label venues | Bank runs its own branded market end to end |
+| 1 · Pilot | Pilot issuance on L1, policy engine as a service | Open tier MVP | Shared policy-hook spec frozen |
+| 2 · Institutional venue | Partner bank tokenized deposits, first RWA | Institutional tier pilot with venue partner | First secondary trade of a TaaS asset on the DEX, DvP against deposits |
+| 2–3 | zkTLS proof of reserves, corporate-action automation | Batch auctions, sealed orders, agent trading | Coupon paid to holders whose units rest on the book |
+| 3 · Interoperability | Multi-jurisdiction rule packs | Cross-chain intent router | RWA bought from another chain, delivered with rules intact |
+| 4 · TaaS at scale | White-label TaaS | White-label venues | Bank runs its own branded market end to end |
+
+Phases follow the [Roadmap](ROADMAP.md); milestones and exit tests are in the [Build plan](BUILD-PLAN.md).
 
 ## Success measures
 Time from term sheet to first trade · share of fills settled atomically · policy rejections caught pre-trade vs at settlement · average spread and depth per listing · cross-chain volume · incidents and pauses.

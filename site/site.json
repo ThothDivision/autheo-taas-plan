@@ -11,6 +11,12 @@
  },
  "docs": [
   {
+   "file": "HOW-IT-WORKS.md",
+   "title": "How it works",
+   "color": "#111111",
+   "summary": "One asset from term sheet to second coupon: actors, objects, state machines, failure handling, what lives on-chain."
+  },
+  {
    "file": "DEX-INTEGRATION.md",
    "title": "DEX integration",
    "color": "#d52b1e",
@@ -45,6 +51,28 @@
    "title": "Roadmap",
    "color": "#00838f",
    "summary": "Five phases over two to three years, engineering and commercial side by side, with open questions."
+  },
+  {
+   "file": "BUILD-PLAN.md",
+   "title": "Build plan",
+   "color": "#5d4037",
+   "summary": "TAAS-DEX containers, repository layout, milestones M0–M6 with exit tests, testing strategy, first six weeks."
+  },
+  {
+   "file": "ECONOMICS.md",
+   "title": "Economics",
+   "color": "#827717",
+   "summary": "Indicative revenue computed from stated inputs: one reference asset and three portfolio scenarios."
+  },
+  {
+   "file": "DECISIONS-AND-RISKS.md",
+   "title": "Decisions & risks",
+   "color": "#ad1457",
+   "summary": "Ten open decisions with options and recommendations, twelve risks with triggers and owners, the premortem."
   }
- ]
+ ],
+ "dev": {
+  "title": "Development repo (TAAS-DEX)",
+  "url": "https://github.com/ThothDivision/TAAS-DEX"
+ }
 }

@@ -17,11 +17,15 @@ Autheo as the infrastructure connecting traditional finance, decentralized marke
 ## Documents
 | | |
 | --- | --- |
+| [How it works](docs/HOW-IT-WORKS.md) | One asset end to end: actors, objects, state machines, failure handling, on-chain vs off-chain |
 | [Architecture](docs/ARCHITECTURE.md) | Layers and how they map onto Autheo L0, L1, Marketplace, DevHub, Identity, AI governance and THEO |
 | [DEX integration](docs/DEX-INTEGRATION.md) | How TaaS and the Autheo DEX share one rulebook: lifecycle, interfaces, bank roles, liquidity, revenue, joint roadmap |
 | [Institutional flows](docs/FLOWS.md) | The seven end-to-end flows: onboarding → tokenize → primary DvP → secondary trading → corporate actions → cross-chain → audit |
 | [Roadmap](docs/ROADMAP.md) | 2–3 year phased plan, engineering and commercial side by side, open questions |
+| [Build plan](docs/BUILD-PLAN.md) | TAAS-DEX containers, repo layout, milestones M0–M6 with exit tests |
+| [Economics](docs/ECONOMICS.md) | Indicative revenue computed from stated inputs |
+| [Decisions and risks](docs/DECISIONS-AND-RISKS.md) | Open decisions with recommendations, risk register, premortem |
 | [Compliance model](docs/COMPLIANCE.md) | Who does what: Autheo vs licensed partners, rules enforced per movement |
 | [Security architecture](docs/SECURITY-PQC.md) | Post-quantum signatures and TLS, tunable strength per institution, zkTLS proof of reserves / balances / KYC |
 
-A working sandbox implementation exists in a private repository. Nothing here is an offer of securities or a regulated service.
+Development: [ThothDivision/TAAS-DEX](https://github.com/ThothDivision/TAAS-DEX). A working sandbox implementation exists in a private repository. Planning process: [PLANNING-LOG.md](PLANNING-LOG.md) (P-DADA). Nothing here is an offer of securities or a regulated service.
