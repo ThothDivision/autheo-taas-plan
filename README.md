@@ -19,5 +19,6 @@ Autheo as the infrastructure connecting traditional finance, decentralized marke
 | [Institutional flows](docs/FLOWS.md) | The seven end-to-end flows: onboarding → tokenize → primary DvP → secondary trading → corporate actions → cross-chain → audit |
 | [Roadmap](docs/ROADMAP.md) | 2–3 year phased plan, engineering and commercial side by side, open questions |
 | [Compliance model](docs/COMPLIANCE.md) | Who does what: Autheo vs licensed partners, rules enforced per movement |
+| [Security architecture](docs/SECURITY-PQC.md) | Post-quantum signatures and TLS, tunable strength per institution, zkTLS proof of reserves / balances / KYC |
 
 A working sandbox implementation exists in a private repository. Nothing here is an offer of securities or a regulated service.

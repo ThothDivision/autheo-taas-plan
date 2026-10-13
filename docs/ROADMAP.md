@@ -21,3 +21,4 @@ Positioning: not "another DEX" — the infrastructure connecting TradFi, decentr
 3. Cash leg: partner tokenized deposits vs. regulated stablecoin vs. both.
 4. Licensing map: which partner holds custody, ATS/MTF and transfer-agent roles per jurisdiction.
 5. Privacy: confidential balances/transfers for institutions (ZK or permissioned subnets) without losing auditability.
+6. Post-quantum: default tenant profile (balanced = ML-DSA-65) and when to require `max`; zkTLS proving backend (RISC Zero / SP1) and STARK vs SNARK on-chain verification — see [SECURITY-PQC.md](SECURITY-PQC.md).
