@@ -102,5 +102,9 @@ flowchart TB
 
 Phases follow the [Roadmap](ROADMAP.md); milestones and exit tests are in the [Build plan](BUILD-PLAN.md).
 
+## Interoperability with other DEXs
+
+The Autheo DEX is one venue among many: the TaaS router reaches external AMMs, aggregators and other RWA venues through venue adapters, while permissioned assets only route to venues that enforce their rules on-chain. See [North star](NORTH-STAR.md) and decision D-15.
+
 ## Success measures
 Time from term sheet to first trade · share of fills settled atomically · policy rejections caught pre-trade vs at settlement · average spread and depth per listing · cross-chain volume · incidents and pauses.

@@ -21,6 +21,7 @@ Owners are roles; names are assigned at the next planning review. Every row is *
 | D-12 | Key custody threshold | MPC t-of-n per client vs HSM-only vs both | MPC 2-of-3 minimum for institutional wallets, HSM for relayer and attester keys | Touches R-09, R-08 | Proposed | before M2 | Security lead |
 | D-13 | Domain reference class | assemble 3+ institutional tokenization / DvP build histories vs keep the general IT base rate | assemble during M0-V; until then use the IT base rate | Changes P50/P80 buffers in the Build plan | Proposed | before M1 | Product lead |
 | D-14 | Physical attestation authority (Lumenco) | (a) Lumenco-accredited attesters only · (b) any licensed inspector using Lumenco readers · (c) issuer self-attests | (a) for the pilot, (b) once reader integration and liability terms exist; never (c) alone | Easier: trust in the physical link. Harder: attester network and liability; touches R-13 | Proposed | before M3 | Head of BD + Counsel |
+| D-15 | First external venues for the router | (a) one AMM on Autheo-connected EVM chains (e.g. Uniswap v3) · (b) an aggregator (e.g. 1inch / CoW) · (c) other ERC-3643 RWA venues | (a) for open-token and cash-leg liquidity in M4, (b) in M5; (c) once a partner venue exists | Easier: liquidity from day one (R-05). Harder: adapter maintenance, MEV exposure on public pools | Proposed | before M4 | Lead architect + Head of markets |
 
 Status moves Proposed → Accepted or Superseded only with a dated entry in `docs/adr/` of the development repo.
 
