@@ -17,6 +17,7 @@ Autheo as the infrastructure connecting traditional finance, decentralized marke
 ## Documents
 | | |
 | --- | --- |
+| [North star](docs/NORTH-STAR.md) | Pick an asset and a chain, Autheo handles the rest; non-custodial; Lumenco physical verification; MCP |
 | [How it works](docs/HOW-IT-WORKS.md) | One asset end to end: actors, objects, state machines, failure handling, on-chain vs off-chain |
 | [Architecture](docs/ARCHITECTURE.md) | Layers and how they map onto Autheo L0, L1, Marketplace, DevHub, Identity, AI governance and THEO |
 | [DEX integration](docs/DEX-INTEGRATION.md) | How TaaS and the Autheo DEX share one rulebook: lifecycle, interfaces, bank roles, liquidity, revenue, joint roadmap |

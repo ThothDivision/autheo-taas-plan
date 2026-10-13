@@ -20,6 +20,7 @@ Owners are roles; names are assigned at the next planning review. Every row is *
 | D-11 | Override and appeal authority for code-enforced freezes | (a) issuer / transfer agent · (b) licensed venue · (c) Autheo · appeals via (i) the investor's institution with an SLA, (ii) an ombudsman | (a)+(b) may lift freezes by a signed, logged action; never (c). Appeals via (i) with a published SLA: reason + ticket id within 1 business day, unfreeze or denial within 10 business days (assumption, Counsel to confirm by M2) | Easier: accountability for code-as-law. Harder: SLA operations for institutions | Proposed | before M2 | Counsel + Head of BD |
 | D-12 | Key custody threshold | MPC t-of-n per client vs HSM-only vs both | MPC 2-of-3 minimum for institutional wallets, HSM for relayer and attester keys | Touches R-09, R-08 | Proposed | before M2 | Security lead |
 | D-13 | Domain reference class | assemble 3+ institutional tokenization / DvP build histories vs keep the general IT base rate | assemble during M0-V; until then use the IT base rate | Changes P50/P80 buffers in the Build plan | Proposed | before M1 | Product lead |
+| D-14 | Physical attestation authority (Lumenco) | (a) Lumenco-accredited attesters only · (b) any licensed inspector using Lumenco readers · (c) issuer self-attests | (a) for the pilot, (b) once reader integration and liability terms exist; never (c) alone | Easier: trust in the physical link. Harder: attester network and liability; touches R-13 | Proposed | before M3 | Head of BD + Counsel |
 
 Status moves Proposed → Accepted or Superseded only with a dated entry in `docs/adr/` of the development repo.
 
@@ -39,6 +40,7 @@ Status moves Proposed → Accepted or Superseded only with a dated entry in `doc
 | R-10 | Schedule overrun (outside view) | High | Medium | A milestone passes its P80 date ([Build plan](BUILD-PLAN.md)) | P50/P80 buffers from the reference class (D-13); cut scope, never exit tests | Product lead |
 | R-11 | THEO price volatility affects fee predictability | Medium | Medium | Fee quotes drift | Fiat-quoted fees (D-10) | Finance |
 | R-12 | Personal data written on-chain by mistake | Low | High | Data review finding | Only references on-chain; schema checks in CI; privacy review | Counsel + CTO |
+| R-13 | A physical item and its token diverge (feature copied, item swapped, attester error) | Low | High | Failed or duplicate scans; attester revocations | Attestation hash only on-chain, revocation blocks protected actions, attester accreditation (D-14), periodic re-scan for high-value assets | Head of BD |
 
 ## Premortem (R0)
 

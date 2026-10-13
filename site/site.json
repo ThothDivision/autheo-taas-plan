@@ -11,6 +11,12 @@
  },
  "docs": [
   {
+   "file": "NORTH-STAR.md",
+   "title": "North star",
+   "color": "#1b5e20",
+   "summary": "Pick an asset and a chain — Autheo handles the rest. Non-custodial by design; Lumenco physical verification; MCP tools."
+  },
+  {
    "file": "HOW-IT-WORKS.md",
    "title": "How it works",
    "color": "#111111",
