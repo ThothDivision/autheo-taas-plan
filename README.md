@@ -12,10 +12,13 @@ Autheo as the infrastructure connecting traditional finance, decentralized marke
 - **Cross-chain interoperability** — issue, manage and settle across supported chains through L0 Mesh.
 - **THEO utility** — network and settlement fees, staking, where appropriate.
 
+**Website: https://thothdivision.github.io/autheo-taas-plan/**
+
 ## Documents
 | | |
 | --- | --- |
 | [Architecture](docs/ARCHITECTURE.md) | Layers and how they map onto Autheo L0, L1, Marketplace, DevHub, Identity, AI governance and THEO |
+| [DEX integration](docs/DEX-INTEGRATION.md) | How TaaS and the Autheo DEX share one rulebook: lifecycle, interfaces, bank roles, liquidity, revenue, joint roadmap |
 | [Institutional flows](docs/FLOWS.md) | The seven end-to-end flows: onboarding → tokenize → primary DvP → secondary trading → corporate actions → cross-chain → audit |
 | [Roadmap](docs/ROADMAP.md) | 2–3 year phased plan, engineering and commercial side by side, open questions |
 | [Compliance model](docs/COMPLIANCE.md) | Who does what: Autheo vs licensed partners, rules enforced per movement |

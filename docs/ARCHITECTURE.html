@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Architecture — Tokenization-as-a-Service</title><meta name="description" content="Autheo TaaS: tokenization, compliant trading, DvP settlement and cross-chain movement for banks and institutions."><link rel="stylesheet" href="../site/style.css"><script type="module">import m from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";m.initialize({startOnLoad:true,flowchart:{useMaxWidth:false},sequence:{useMaxWidth:false},theme:"base",themeVariables:{fontFamily:"Helvetica Neue, Helvetica, Arial, sans-serif",primaryColor:"#ffffff",primaryBorderColor:"#111111",primaryTextColor:"#111111",lineColor:"#111111",clusterBkg:"#f2f1ec",clusterBorder:"#c9c7bf",tertiaryColor:"#f2f1ec",actorBkg:"#ffffff",actorBorder:"#111111",noteBkgColor:"#fff6d6"}});</script></head><body><header class="masthead"><a class="brand" href="../index.html"><span class="brand-dot" aria-hidden="true"></span>Autheo<span class="brand-sub">Tokenization-as-a-Service</span></a><nav aria-label="Documents"><a href="../docs/DEX-INTEGRATION.html">DEX integration</a><a href="../docs/ARCHITECTURE.html" aria-current="page">Architecture</a><a href="../docs/FLOWS.html">Institutional flows</a><a href="../docs/COMPLIANCE.html">Compliance model</a><a href="../docs/SECURITY-PQC.html">Security</a><a href="../docs/ROADMAP.html">Roadmap</a></nav></header><main class="doc"><div class="doc-line" style="--line:#1565c0" aria-hidden="true"></div><aside class="toc" aria-label="On this page"><div class="toc-label">On this page</div><a href="#components-v0-module-production-component">Components (v0 module → production component)</a><a href="#design-principles">Design principles</a></aside><article class="prose"><div class="kicker" style="--line:#1565c0">02 · Tokenization-as-a-Service</div><h1 id="architecture">Architecture</h1>
+<figure class="diagram"><pre class="mermaid">flowchart TB
+  subgraph TradFi["Traditional finance (licensed partners)"]
+    CB[Core banking] --- CUS[Custodian] --- PAY[Payment rails&lt;br/&gt;SWIFT · Fedwire/RTP · SEPA]
+    KYC[KYC/AML &amp; sanctions providers]
+  end
+  subgraph Access["Access layer"]
+    API[Enterprise API / SDK&lt;br/&gt;ISO 20022 adapters] --- CON[Institution console] --- DH[DevHub / Shadw&lt;br/&gt;deploy &amp; integrate]
+  end
+  subgraph TaaS["Autheo TaaS platform"]
+    ID[Identity &amp; credentials] --&gt; POL[Compliance policy engine]
+    ISS[Issuance / asset factory] --&gt; POL
+    OB[Compliant order book / RFQ&lt;br/&gt;Marketplace venue] --&gt; SET[DvP settlement engine]
+    POL --&gt; SET
+    CA[Corporate actions&lt;br/&gt;coupons · redemptions · NAV]
+    AUD[Audit &amp; AI governance]
+  end
+  subgraph Chain["Autheo chains"]
+    L1[Autheo L1&lt;br/&gt;permissioned token + settlement contracts]
+    L0[L0 Mesh&lt;br/&gt;cross-chain attestation &amp; routing]
+    THEO[(THEO&lt;br/&gt;fees · staking)]
+  end
+  EXT[Ethereum · Polygon · Base · Avalanche · …]
+  TradFi --&gt; Access --&gt; TaaS --&gt; L1 &lt;--&gt; L0 &lt;--&gt; EXT
+  SET --&gt; L1
+  AUD --&gt; L1
+  THEO -.-&gt; SET &amp; L0</pre></figure><p class="scroll-hint">Diagram scrolls sideways →</p>
+<h2 id="components-v0-module-production-component">Components (v0 module → production component)</h2>
+<div class="table"><table><thead><tr><th>Layer</th><th>v0</th><th>Production</th><th>Autheo building block</th></tr></thead><tbody><tr><td>Identity</td><td><code>Platform.onboard/setKyc</code></td><td>Verifiable credentials issued by licensed KYC providers; wallet ↔ legal-entity binding</td><td>Autheo Identity</td></tr><tr><td>Policy</td><td><code>src/policy.js</code></td><td>Same rule model compiled to an on-chain compliance module (ERC-3643/T-REX style <code>canTransfer</code>), plus off-chain screening</td><td>L1 smart contracts + AI governance</td></tr><tr><td>Issuance</td><td><code>Platform.tokenize/mint</code></td><td>Asset factory contracts, document hashes (OM/prospectus) anchored, issuer/agent roles</td><td>L1 + DevHub templates</td></tr><tr><td>Trading</td><td><code>placeOrder/match</code></td><td>Order book + RFQ for block trades, operated under a partner's ATS/MTF licence</td><td>Marketplace</td></tr><tr><td>Settlement</td><td><code>settleDvP</code></td><td>Atomic DvP contract vs tokenized deposits / regulated stablecoins; PvP for FX</td><td>L1</td></tr><tr><td>Corporate actions</td><td><code>payCoupon/redeem</code></td><td>Scheduled, oracle-fed (rates, NAV) programmable actions</td><td>L1 + oracles</td></tr><tr><td>Interop</td><td><code>src/mesh.js</code></td><td>Canonical supply on L1; mesh attestations lock/mint elsewhere; rules enforced on every chain</td><td>L0 Mesh</td></tr><tr><td>Economics</td><td><code>src/fees.js</code></td><td>THEO fees, staking tiers for institutions/relayers</td><td>THEO</td></tr><tr><td>Audit</td><td><code>src/audit.js</code></td><td>Hash-chained log with periodic root anchoring on L1, regulator read access</td><td>L1 + AI governance</td></tr><tr><td>Delivery</td><td><code>server.js</code>, <code>shadw.yml</code></td><td>Multi-tenant service per institution, deployed via DevHub/Shadw</td><td>DevHub</td></tr></tbody></table></div>
+<h2 id="design-principles">Design principles</h2>
+<ol><li><strong>Policy travels with the asset.</strong> Every movement — issuance, transfer, DvP leg, coupon, cross-chain hop — is evaluated by the same engine and the result is explainable.</li><li><strong>Atomic settlement.</strong> Both DvP legs are validated before either moves; partial settlement is impossible.</li><li><strong>Canonical home, many destinations.</strong> Supply of record stays on Autheo L1; L0 Mesh handles representation elsewhere.</li><li><strong>Partners hold licences, Autheo runs rails.</strong> Autheo never takes custody of client assets in the target model.</li><li><strong>Everything audited.</strong> Append-only, tamper-evident, verifiable by third parties.</li></ol><a class="next" href="FLOWS.html"><span>Next</span>Institutional flows →</a></article></main><footer class="foot"><div>Planning documents. Not an offer of securities or a regulated service.</div><div><a href="https://github.com/ThothDivision/autheo-taas-plan">Source on GitHub</a> · <a href="https://thothdivision.github.io/autheo-dex/">Autheo DEX plan</a></div></footer></body></html>

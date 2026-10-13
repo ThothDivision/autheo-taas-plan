@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Institutional flows — Tokenization-as-a-Service</title><meta name="description" content="Autheo TaaS: tokenization, compliant trading, DvP settlement and cross-chain movement for banks and institutions."><link rel="stylesheet" href="../site/style.css"><script type="module">import m from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";m.initialize({startOnLoad:true,flowchart:{useMaxWidth:false},sequence:{useMaxWidth:false},theme:"base",themeVariables:{fontFamily:"Helvetica Neue, Helvetica, Arial, sans-serif",primaryColor:"#ffffff",primaryBorderColor:"#111111",primaryTextColor:"#111111",lineColor:"#111111",clusterBkg:"#f2f1ec",clusterBorder:"#c9c7bf",tertiaryColor:"#f2f1ec",actorBkg:"#ffffff",actorBorder:"#111111",noteBkgColor:"#fff6d6"}});</script></head><body><header class="masthead"><a class="brand" href="../index.html"><span class="brand-dot" aria-hidden="true"></span>Autheo<span class="brand-sub">Tokenization-as-a-Service</span></a><nav aria-label="Documents"><a href="../docs/DEX-INTEGRATION.html">DEX integration</a><a href="../docs/ARCHITECTURE.html">Architecture</a><a href="../docs/FLOWS.html" aria-current="page">Institutional flows</a><a href="../docs/COMPLIANCE.html">Compliance model</a><a href="../docs/SECURITY-PQC.html">Security</a><a href="../docs/ROADMAP.html">Roadmap</a></nav></header><main class="doc"><div class="doc-line" style="--line:#13874b" aria-hidden="true"></div><aside class="toc" aria-label="On this page"><div class="toc-label">On this page</div><a href="#1-institution-onboarding">1. Institution onboarding</a><a href="#2-tokenize-a-real-world-asset">2. Tokenize a real-world asset</a><a href="#3-primary-distribution-dvp-against-tokenized-deposits">3. Primary distribution (DvP against tokenized deposits)</a><a href="#4-secondary-trading-institutional-dex">4. Secondary trading (institutional DEX)</a><a href="#5-corporate-actions">5. Corporate actions</a><a href="#6-cross-chain-via-l0-mesh">6. Cross-chain via L0 Mesh</a><a href="#7-regulator-auditor">7. Regulator / auditor</a><a href="#sequence-secondary-trade-end-to-end">Sequence: secondary trade end to end</a></aside><article class="prose"><div class="kicker" style="--line:#13874b">03 · Tokenization-as-a-Service</div><h1 id="deployable-flows">Deployable flows</h1>
+<p>All flows run in the sandbox today (<code>npm start</code>, console tabs or curl). IDs refer to the seed data.</p>
+<h2 id="1-institution-onboarding">1. Institution onboarding</h2>
+<pre><code>POST /api/parties            {"name":"Acme Pension","type":"institution","jurisdiction":"US"}   -&gt; kyc: pending
+POST /api/parties/:id/kyc    {"status":"verified","accredited":true}                           (licensed KYC provider callback)</code></pre>
+<p>Production: provider issues a verifiable credential; wallet(s) bound to the legal entity.</p>
+<h2 id="2-tokenize-a-real-world-asset">2. Tokenize a real-world asset</h2>
+<pre><code>POST /api/assets {"issuerId":"meridian","symbol":"MCB31","name":"Meridian 4.5% 2031","assetClass":"bond",
+  "faceValue":100,"couponRateBps":450,"chains":["ethereum"],
+  "rules":{"requiresAccreditation":true,"jurisdictionsAllowed":["US","DE","SG"],"maxHoldingPerInvestor":50000,"minTransfer":10}}
+POST /api/assets/:id/mint {"to":"meridian","amount":100000}</code></pre>
+<h2 id="3-primary-distribution-dvp-against-tokenized-deposits">3. Primary distribution (DvP against tokenized deposits)</h2>
+<pre><code>POST /api/settlements/dvp {"assetId":"mcb-2029","seller":"meridian","buyer":"lionsgate-sg","quantity":5000,"price":100}</code></pre>
+<p>Delivery leg (bond) and payment leg (USDx) are both policy-checked, then applied atomically.</p>
+<h2 id="4-secondary-trading-institutional-dex">4. Secondary trading (institutional DEX)</h2>
+<pre><code>POST /api/orders {"assetId":"mcb-2029","partyId":"helios","side":"buy","quantity":8000,"price":102}</code></pre>
+<p>Pre-trade eligibility check → price-time matching against resting offers → each fill settles via DvP. Ineligible buyers (e.g. <code>retail-ray</code>) are rejected before reaching the book.</p>
+<h2 id="5-corporate-actions">5. Corporate actions</h2>
+<pre><code>POST /api/assets/mcb-2029/coupon  {"cashAssetId":"usdx"}      # pays eligible holders, withholds blocked ones
+POST /api/assets/mcb-2029/redeem  {"from":"northwind","amount":100,"cashAssetId":"usdx"}
+POST /api/assets/mcb-2029/pause   {"paused":true}              # regulatory/issuer freeze</code></pre>
+<h2 id="6-cross-chain-via-l0-mesh">6. Cross-chain via L0 Mesh</h2>
+<pre><code>POST /api/mesh/quote    {"assetId":"mcb-2029","partyId":"northwind","amount":1000,"toChain":"ethereum"}
+POST /api/mesh/transfer {"assetId":"mcb-2029","partyId":"northwind","amount":1000,"toChain":"ethereum"}</code></pre>
+<p>Only chains enabled by the issuer are reachable; holder eligibility is re-checked on every move.</p>
+<h2 id="7-regulator-auditor">7. Regulator / auditor</h2>
+<pre><code>GET /api/audit          # latest events with actor attribution
+GET /api/audit/verify   # recomputes the SHA-256 chain -&gt; {"ok":true,"head":...}
+POST /api/compliance/check {...}   # explain why a hypothetical transfer would pass/fail</code></pre>
+<h2 id="sequence-secondary-trade-end-to-end">Sequence: secondary trade end to end</h2>
+<figure class="diagram"><pre class="mermaid">sequenceDiagram
+  participant B as Buyer (Helios)
+  participant API as TaaS API
+  participant P as Policy engine
+  participant OB as Order book
+  participant S as DvP settlement
+  participant L as Ledger (Autheo L1)
+  participant A as Audit
+  B-&gt;&gt;API: POST /orders buy 8000 MCB29 @102
+  API-&gt;&gt;P: pre-trade eligibility (KYC, sanctions, jurisdiction, accreditation, limit)
+  P--&gt;&gt;API: allowed
+  API-&gt;&gt;OB: match vs best offer (Meridian @101)
+  OB-&gt;&gt;S: fill 8000 @101
+  S-&gt;&gt;P: check delivery leg + payment leg
+  S-&gt;&gt;L: move MCB29 seller→buyer, USDx buyer→seller (atomic)
+  S-&gt;&gt;A: settlement.dvp (+ THEO fee)
+  API--&gt;&gt;B: filled, trade id</pre></figure><p class="scroll-hint">Diagram scrolls sideways →</p><a class="next" href="COMPLIANCE.html"><span>Next</span>Compliance model →</a></article></main><footer class="foot"><div>Planning documents. Not an offer of securities or a regulated service.</div><div><a href="https://github.com/ThothDivision/autheo-taas-plan">Source on GitHub</a> · <a href="https://thothdivision.github.io/autheo-dex/">Autheo DEX plan</a></div></footer></body></html>

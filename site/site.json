@@ -1,0 +1,50 @@
+{
+ "brand": "Autheo",
+ "product": "Tokenization-as-a-Service",
+ "tagline": "strategy and plan",
+ "description": "Autheo TaaS: tokenization, compliant trading, DvP settlement and cross-chain movement for banks and institutions.",
+ "repo": "https://github.com/ThothDivision/autheo-taas-plan",
+ "footer": "Planning documents. Not an offer of securities or a regulated service.",
+ "related": {
+  "title": "Autheo DEX plan",
+  "url": "https://thothdivision.github.io/autheo-dex/"
+ },
+ "docs": [
+  {
+   "file": "DEX-INTEGRATION.md",
+   "title": "DEX integration",
+   "color": "#d52b1e",
+   "summary": "One rulebook for issuance and trading: lifecycle, interfaces, bank roles, liquidity, revenue, joint roadmap."
+  },
+  {
+   "file": "ARCHITECTURE.md",
+   "title": "Architecture",
+   "color": "#1565c0",
+   "summary": "Layers from licensed partners to Autheo L1 and the L0 Mesh, and which Autheo product supplies each."
+  },
+  {
+   "file": "FLOWS.md",
+   "title": "Institutional flows",
+   "color": "#13874b",
+   "summary": "Seven end-to-end flows from onboarding to the regulator's audit check, with the calls behind each."
+  },
+  {
+   "file": "COMPLIANCE.md",
+   "title": "Compliance model",
+   "color": "#e87511",
+   "summary": "Who holds which licence, what Autheo enforces, and the rules checked on every movement."
+  },
+  {
+   "file": "SECURITY-PQC.md",
+   "title": "Security",
+   "color": "#6f3fb5",
+   "summary": "Post-quantum signatures and TLS, strength profiles per institution, zkTLS proof of reserves."
+  },
+  {
+   "file": "ROADMAP.md",
+   "title": "Roadmap",
+   "color": "#00838f",
+   "summary": "Five phases over two to three years, engineering and commercial side by side, with open questions."
+  }
+ ]
+}
